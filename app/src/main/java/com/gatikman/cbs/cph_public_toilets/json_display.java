@@ -22,7 +22,7 @@ public class json_display extends AppCompatActivity {
     private TextView jsonOutput;
     private Button btnFetchJson;
 
-
+//
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
