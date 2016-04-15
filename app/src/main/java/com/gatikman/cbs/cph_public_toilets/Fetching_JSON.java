@@ -1,4 +1,4 @@
-package com.gatikman.cbs.cph_public_toilets;
+/*package com.gatikman.cbs.cph_public_toilets;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
@@ -15,11 +15,12 @@ import java.util.HashMap;
  * Created by kristiangundersen on 11/04/16.
  */
 
+/*
+
 public class Fetching_JSON {
 
     // URL to get toilets JSON
     private static String toiletsUrl = "http://wfs-kbhkort.kk.dk/k101/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=k101:toilet&outputFormat=json&SRSNAME=EPSG:4326";
-    private ProgressDialog spinner;
 
 // Calling async task to get json
     new GetToilets().execute();
@@ -98,3 +99,4 @@ public class Fetching_JSON {
 
 
 }
+*/
