@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.json.JSONObject;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -21,6 +23,7 @@ public class json_display extends AppCompatActivity {
 
     private TextView jsonOutput;
     private Button btnFetchJson;
+    private JSONObject geoJson;
 
 ////
     @Override
@@ -42,7 +45,7 @@ public class json_display extends AppCompatActivity {
 
     }
 
-    public class fetchJsonAsync extends AsyncTask<Void, String, String> {
+    public class fetchJsonAsync extends AsyncTask<Void, String, JSONObject> {
 
         HttpURLConnection urlConnection;
         /* private ProgressDialog spinner;
@@ -63,7 +66,7 @@ public class json_display extends AppCompatActivity {
         */
 
         @Override
-        protected String doInBackground(Void... args) {
+        protected JSONObject doInBackground(Void... args) {
 
             StringBuilder result = new StringBuilder();
 
@@ -78,6 +81,7 @@ public class json_display extends AppCompatActivity {
                 while ((line = reader.readLine()) != null) {
                     result.append(line);
                 }
+                geoJson =  new JSONObject(result.toString());
 
             }catch( Exception e) {
                 e.printStackTrace();
@@ -87,13 +91,13 @@ public class json_display extends AppCompatActivity {
             }
 
 
-            return result.toString();
+            return geoJson;
         }
 
         @Override
-        protected void onPostExecute(String result) {
+        protected void onPostExecute(JSONObject geoJson) {
 
-            jsonOutput.setText(result);
+            jsonOutput.setText(geoJson.toString());
 
         }
 
